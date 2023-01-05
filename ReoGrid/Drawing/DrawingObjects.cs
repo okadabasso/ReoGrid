@@ -393,7 +393,8 @@ namespace unvell.ReoGrid.Drawing
 			this.LineColor = SolidColor.Black;
 			this.FillColor = SolidColor.White;
 
-			this.FontName = "Arial";
+			this.FontName = "ＭＳ Ｐゴシック";
+			//this.FontName = "Arail";
 			this.FontSize = 8.25F;
 
 			this.LineWidth = 1.0F;
