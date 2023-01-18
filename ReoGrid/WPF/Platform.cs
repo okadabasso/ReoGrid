@@ -139,7 +139,7 @@ namespace unvell.ReoGrid.Rendering
 				}
 			}
 
-			return new Graphics.Size(totalWidth, typeface.CapsHeight);
+			return new Graphics.Size(totalWidth, typeface.CapsHeight * fontSize * 1.33d);
 		}
 
 		public static System.Windows.FontStyle ToWPFFontStyle(unvell.ReoGrid.Drawing.Text.FontStyles textStyle)

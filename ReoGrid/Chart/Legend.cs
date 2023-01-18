@@ -152,7 +152,9 @@ namespace unvell.ReoGrid.Chart
 
 			string label = ds[index].Label;
 
-			return PlatformUtility.MeasureText(null, label, this.FontName, this.FontSize, this.FontStyles);
+			var textSize = PlatformUtility.MeasureText(null, label, this.FontName, this.FontSize, this.FontStyles);
+			var size = new Size(textSize.Width + 10, 12);
+			return size;
 		}
 
 		private Size layoutedSize = Size.Zero;

@@ -57,14 +57,22 @@ namespace unvell.ReoGrid.Demo.Charts
 			worksheet.AddHighlightRange(categoryNamesRange);
 			worksheet.AddHighlightRange(serialNamesRange);
 			worksheet.AddHighlightRange(dataRange);
+			var axis = new AxisDataInfo();
+			axis.AutoMinimum = true;
+			axis.AutoMaximum = true;
+			axis.Levels = 10;
+			axis.Minimum = 0F;
+			axis.Maximum = 20F;
+			axis.SmallStride = 0;
+			axis.LargeStride = 10;
 
 			var c1 = new Chart.LineChart
 			{
 				Location = new Graphics.Point(220, 160),
-				Size = new Graphics.Size(400, 260),
+				Size = new Graphics.Size(400, 360),
 
 				Title = "Line Chart Sample",
-
+				//PrimaryAxisInfo = axis,
 				// Specify data source.
 				// Data source is created from serial data and names for every serial data.
 				DataSource = new WorksheetChartDataSource(worksheet, serialNamesRange, dataRange)
@@ -72,8 +80,12 @@ namespace unvell.ReoGrid.Demo.Charts
 					CategoryNameRange = categoryNamesRange,
 				}
 			};
-
+			c1.PrimaryAxisInfo = axis;
+			c1.DataSource = new WorksheetChartDataSource(worksheet, serialNamesRange, dataRange) {
+				CategoryNameRange = categoryNamesRange,
+			};
 			worksheet.FloatingObjects.Add(c1);
+
 		}
 
 	}

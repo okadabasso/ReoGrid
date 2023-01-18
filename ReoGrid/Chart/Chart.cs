@@ -775,9 +775,9 @@ namespace unvell.ReoGrid.Chart
 				}
 			}
 
-			ai.Levels = (int)Math.Round((ai.Maximum - ai.Minimum) / stride);
+			ai.Levels = (int)Math.Round((ai.Maximum - ai.Minimum) / 10);
 
-			ai.LargeStride = stride;
+			ai.LargeStride = 10;
 		}
 
 		/// <summary>

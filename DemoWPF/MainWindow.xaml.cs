@@ -84,11 +84,11 @@ namespace unvell.ReoGrid.WPFDemo
 			var worksheet = grid.NewWorksheet("Chart & Drawing");
 
 			worksheet["A2"] = new object[,] {
-					{null, 2008,  2009, 2010, 2011, 2012},
-					{"項目 1",  5,  10, 12, 11, 14},
-					{"項目 2",  7,  8,  7,  6,  4},
-					{"項目 3",  13, 10, 9,  10, 9},
-					{"Total", 25, 28, 28, 27, 27},
+					{null, 1, 2, 3, 4, 5, null},
+					{"項目 1",  5,  10, 12, 11, null, null},
+					{"項目 2",  7,  8,  7,  6,  null, null},
+					{"項目 3",  13, 10, 9,  10, null, null},
+					{"Total", 25, 28, 30, 27, null, null},
 			};
 
 			worksheet.AddOutline(RowOrColumn.Row, 3, 4);
@@ -96,17 +96,31 @@ namespace unvell.ReoGrid.WPFDemo
 			var range = worksheet.Ranges["B3:F6"];
 			worksheet.AddHighlightRange(range);
 
-			var chart = new LineChart
-			{
+			var axis = new AxisDataInfo();
+			axis.AutoMaximum = true;
+			axis.AutoMinimum = false;
+			axis.Levels = 1;
+			axis.Minimum = 0F;
+			axis.Maximum = 80F;
+			axis.LargeStride = 10;
+			axis.SmallStride = 0;
+			
+			
+			
+			var chart = new LineChart {
 				Location = new Point(360, 140),
+				Size = new Graphics.Size(400, 320),
 
 				Title = "Line Chart Sample",
 
-				DataSource = new WorksheetChartDataSource(worksheet, "A2:A6", "B3:F6")
-				{
-					CategoryNameRange = new RangePosition("B2:F2"),
-				},
+				PrimaryAxisInfo = axis,
 			};
+			chart.DataSource = new WorksheetChartDataSource(worksheet, "A2:A6", "B3:G6") {
+				CategoryNameRange = new RangePosition("B2:G2"),
+			};
+			//chart.PrimaryLegend.Width = 340F;
+			// chart.PrimaryAxisInfo.Maximum = 50;
+
 
 			worksheet.FloatingObjects.Add(chart);
 
@@ -116,7 +130,7 @@ namespace unvell.ReoGrid.WPFDemo
 			worksheet.FloatingObjects.Add(new RectangleShape
 			{
 				Location = new Graphics.Point(100, 200),
-				Size = new Graphics.Size(160, 40),
+				Size = new Graphics.Size(200, 40),
 
 				Text = "1. Add Data Source",
 			});

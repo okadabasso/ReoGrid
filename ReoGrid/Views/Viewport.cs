@@ -206,7 +206,7 @@ namespace unvell.ReoGrid.Views
 				this.ScrollableDirections.ToString());
 
 			var ft = new System.Windows.Media.FormattedText(msg, System.Globalization.CultureInfo.CurrentCulture, System.Windows.FlowDirection.LeftToRight, 
-				new System.Windows.Media.Typeface("Arial"), 12, System.Windows.Media.Brushes.Blue, 96);
+				new System.Windows.Media.Typeface("ＭＳ Ｐゴシック"), 12, System.Windows.Media.Brushes.Blue, 96);
 
 			dc.Graphics.PlatformGraphics.DrawText(ft, new System.Windows.Point(this.Left + 1, this.Top + ((this is CellsViewport) ? 30 : this.Height / 2)));
 #endif // WPF
