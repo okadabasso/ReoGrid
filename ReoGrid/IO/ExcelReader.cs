@@ -1046,10 +1046,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 		{
 			SolidColor tempColor = new SolidColor();
 
+			styleset.FontName = "Arial";
 			if (font.name != null && !string.IsNullOrEmpty(font.name.value))
 			{
 				styleset.Flag |= PlainStyleFlag.FontName;
-				styleset.FontName = font.name.value;
+				//styleset.FontName = font.name.value;
 			}
 
 			float v;

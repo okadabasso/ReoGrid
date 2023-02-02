@@ -1145,6 +1145,7 @@ namespace unvell.ReoGrid.Drawing.Text
 			this.text = string.Empty;
 
 			this.FontName = fontName;
+			this.FontName = "ＭＳ Ｐゴシック";
 			this.FontSize = fontSize;
 			this.FontStyles = fontStyles;
 			this.TextColor = textColor;

@@ -2,6 +2,8 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
+using System.Globalization;
+using System.Text;
 using unvell.ReoGrid.CellTypes;
 using unvell.ReoGrid.Chart;
 using unvell.ReoGrid.Drawing.Shapes;
@@ -307,6 +309,9 @@ namespace unvell.ReoGrid.WPFDemo
 
 		private void File_Open_Click(object sender, RoutedEventArgs e)
 		{
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+			var culture = CultureInfo.GetCultureInfo("ja-JP");
+			CultureInfo.CurrentCulture = culture;
 			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
 			dlg.DefaultExt = ".xlsx";
